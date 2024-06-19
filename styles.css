@@ -15,10 +15,14 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    max-width: 100%; /* Asegura que el contenedor no se extienda más allá del ancho de la pantalla */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 h1 {
     margin-bottom: 20px;
+    font-size: 24px; /* Ajusta el tamaño del título para dispositivos móviles */
 }
 
 /* Estilos del contenedor del escáner */
@@ -31,7 +35,7 @@ h1 {
 }
 
 .video-preview {
-    width: 300px; /* Reduce el tamaño del video */
+    width: 80%; /* Ajusta el tamaño del video para pantallas pequeñas */
     height: auto;
     border: 2px solid #000;
     border-radius: 10px;
@@ -39,9 +43,9 @@ h1 {
 }
 
 .button {
-    padding: 10px 20px;
+    padding: 15px 25px; /* Aumenta el tamaño del botón para facilitar el clic en dispositivos móviles */
     margin: 5px;
-    font-size: 16px;
+    font-size: 18px;
     background-color: #007bff;
     color: white;
     border: none;
@@ -56,7 +60,7 @@ h1 {
 /* Estilos del resultado del escaneo */
 .result {
     margin: 10px 0;
-    font-size: 18px;
+    font-size: 20px;
     color: #333;
 }
 
@@ -71,32 +75,36 @@ h1 {
     justify-content: space-between;
     align-items: center;
     background-color: #e8e8e8;
-    padding: 10px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    font-size: 18px;
+    padding: 15px; /* Aumenta el espacio de los elementos para mejor visualización */
+    margin-bottom: 10px;
+    border-radius: 10px; /* Aumenta el radio de las esquinas para una apariencia más amigable */
+    font-size: 22px; /* Aumenta el tamaño de la fuente */
 }
 
 .product-info {
     display: flex;
-    gap: 10px; /* Espaciado entre las partes de la información */
+    flex-direction: column; /* Cambia a columna para que los elementos se apilen verticalmente */
+    gap: 5px; /* Espaciado entre las partes de la información */
 }
 
 .product-info p {
     background-color: #007bff;
     color: white;
-    padding: 5px 10px;
+    padding: 10px 15px; /* Aumenta el padding para que los elementos sean más visibles */
     border-radius: 5px;
     margin: 0;
+    font-size: 22px; /* Aumenta el tamaño de la fuente */
 }
 
+/* Botón de eliminación */
 .delete-button {
     background-color: #dc3545;
     color: white;
-    padding: 5px 10px;
+    padding: 10px 15px; /* Aumenta el tamaño del botón para facilitar el clic en dispositivos móviles */
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 18px; /* Aumenta el tamaño de la fuente del botón */
 }
 
 .delete-button:hover {
