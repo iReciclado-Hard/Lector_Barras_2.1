@@ -7,7 +7,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f4f4f4;
-    padding: 10px; /* Asegura que haya espacio en los márgenes */
+    padding: 10px;
 }
 
 .container {
@@ -16,14 +16,14 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    max-width: 100%; /* Asegura que el contenedor no se extienda más allá del ancho de la pantalla */
+    max-width: 100%;
     width: 100%;
     box-sizing: border-box;
 }
 
 h1 {
     margin-bottom: 20px;
-    font-size: 24px; /* Ajusta el tamaño del título para dispositivos móviles */
+    font-size: 24px;
 }
 
 /* Estilos del contenedor del escáner */
@@ -36,17 +36,18 @@ h1 {
 }
 
 .video-preview {
-    width: 80%; /* Ajusta el tamaño del video para pantallas pequeñas */
+    width: 80%;
     height: auto;
     border: 2px solid #000;
     border-radius: 10px;
     margin-bottom: 10px;
+    object-fit: cover; /* Asegura que el video se ajuste al contenedor */
 }
 
 .button {
-    padding: 10px 30px; /* Triplica el tamaño del botón para facilitar el clic en dispositivos móviles */
+    padding: 15px 30px; /* Tamaño reducido a la mitad */
     margin: 10px;
-    font-size: 36px; /* Aumenta el tamaño de la fuente del botón */
+    font-size: 18px; /* Tamaño reducido a la mitad */
     background-color: #007bff;
     color: white;
     border: none;
@@ -61,7 +62,7 @@ h1 {
 /* Estilos del resultado del escaneo */
 .result {
     margin: 10px 0;
-    font-size: 30px; /* Aumenta el tamaño del texto para mejor legibilidad */
+    font-size: 15px; /* Tamaño reducido a la mitad */
     color: #333;
 }
 
@@ -76,36 +77,36 @@ h1 {
     justify-content: space-between;
     align-items: center;
     background-color: #e8e8e8;
-    padding: 30px; /* Triplica el espacio de los elementos para mejor visualización */
-    margin-bottom: 20px; /* Espacio extra entre los elementos */
-    border-radius: 10px; /* Aumenta el radio de las esquinas para una apariencia más amigable */
-    font-size: 36px; /* Triplica el tamaño de la fuente */
+    padding: 15px; /* Tamaño reducido a la mitad */
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: 18px; /* Tamaño reducido a la mitad */
 }
 
 .product-info {
     display: flex;
-    flex-direction: column; /* Cambia a columna para que los elementos se apilen verticalmente */
-    gap: 10px; /* Espaciado entre las partes de la información */
+    flex-direction: column;
+    gap: 10px;
 }
 
 .product-info p {
     background-color: #007bff;
     color: white;
-    padding: 20px 30px; /* Aumenta el padding para que los elementos sean más visibles */
+    padding: 10px 15px; /* Tamaño reducido a la mitad */
     border-radius: 5px;
     margin: 0;
-    font-size: 36px; /* Triplica el tamaño de la fuente */
+    font-size: 18px; /* Tamaño reducido a la mitad */
 }
 
 /* Botón de eliminación */
 .delete-button {
     background-color: #dc3545;
     color: white;
-    padding: 20px 30px; /* Triplica el tamaño del botón para facilitar el clic en dispositivos móviles */
+    padding: 10px 15px; /* Tamaño reducido a la mitad */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 36px; /* Triplica el tamaño de la fuente del botón */
+    font-size: 18px; /* Tamaño reducido a la mitad */
 }
 
 .delete-button:hover {
