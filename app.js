@@ -76,33 +76,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función para mostrar los datos del producto en la página
     function displayProductData(productData) {
+        const productItem = document.createElement('div');
+        productItem.classList.add('product-item');
+
+        const productInfo = document.createElement('div');
+        productInfo.classList.add('product-info');
+
         if (productData) {
-            const productItem = document.createElement('div');
-            productItem.classList.add('product-item');
-
-            const productInfo = document.createElement('div');
-            productInfo.classList.add('product-info');
-
-            // Añade la información del producto sin las etiquetas (Descripción, Precio, Sugerido)
+            // Añade la información del producto sin las etiquetas
             ['Descripcion', 'Precio', 'Sugerido'].forEach(key => {
                 const p = document.createElement('p');
                 p.innerText = `${productData[key]}`;
                 productInfo.appendChild(p);
             });
-
-            // Botón para eliminar el producto
-            const deleteButton = document.createElement('button');
-            deleteButton.classList.add('delete-button');
-            deleteButton.innerText = 'Eliminar';
-            deleteButton.addEventListener('click', () => {
-                productListElement.removeChild(productItem);
-            });
-
-            productItem.appendChild(productInfo);
-            productItem.appendChild(deleteButton);
-            productListElement.appendChild(productItem);
         } else {
-            alert('Producto no encontrado.');
+            const p = document.createElement('p');
+            p.innerText = `Producto no encontrado.`;
+            productInfo.appendChild(p);
         }
+
+        // Botón para eliminar el producto
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-button');
+        deleteButton.innerText = 'Eliminar';
+        deleteButton.addEventListener('click', () => {
+            productListElement.removeChild(productItem);
+        });
+
+        productItem.appendChild(productInfo);
+        productItem.appendChild(deleteButton);
+        productListElement.appendChild(productItem);
     }
 });
