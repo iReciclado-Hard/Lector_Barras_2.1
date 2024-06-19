@@ -44,7 +44,7 @@ h1 {
 }
 
 .button {
-    padding: 30px 60px; /* Triplica el tamaño del botón para facilitar el clic en dispositivos móviles */
+    padding: 60px 120px; /* Triplica el tamaño del botón para facilitar el clic en dispositivos móviles */
     margin: 10px;
     font-size: 36px; /* Aumenta el tamaño de la fuente del botón */
     background-color: #007bff;
