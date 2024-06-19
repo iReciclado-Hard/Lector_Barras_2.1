@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const beepSound = document.getElementById('beep-sound');
     const resultElement = document.getElementById('result');
     const productListElement = document.getElementById('productList');
+    const totalElement = document.getElementById('total-suggested');
+    let totalSuggestedPrice = 0;
     let scanning = false;
 
     document.getElementById('startScan').addEventListener('click', () => {
@@ -90,6 +92,12 @@ document.addEventListener('DOMContentLoaded', () => {
             ['Descripcion', 'Precio', 'Sugerido'].forEach(key => {
                 const p = document.createElement('p');
                 p.innerText = `${productData[key]}`;
+                if (key === 'Sugerido') {
+                    p.classList.add('sugerido');
+                    // Actualiza el total de los precios sugeridos
+                    totalSuggestedPrice += parseFloat(productData[key]);
+                    updateTotalSuggestedPrice();
+                }
                 productInfo.appendChild(p);
             });
         } else {
@@ -103,11 +111,20 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteButton.classList.add('delete-button');
         deleteButton.innerText = 'Eliminar';
         deleteButton.addEventListener('click', () => {
+            if (productData && productData['Sugerido']) {
+                totalSuggestedPrice -= parseFloat(productData['Sugerido']);
+                updateTotalSuggestedPrice();
+            }
             productListElement.removeChild(productItem);
         });
 
         productItem.appendChild(productInfo);
         productItem.appendChild(deleteButton);
         productListElement.appendChild(productItem);
+    }
+
+    // Función para actualizar el total de los precios sugeridos
+    function updateTotalSuggestedPrice() {
+        totalElement.innerText = `Total Sugerido: $${totalSuggestedPrice.toFixed(2)}`;
     }
 });
