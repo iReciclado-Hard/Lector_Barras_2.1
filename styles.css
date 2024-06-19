@@ -45,9 +45,9 @@ h1 {
 }
 
 .button {
-    padding: 15px 30px; /* Tamaño reducido a la mitad */
+    padding: 15px 30px; /* Tamaño reducido */
     margin: 10px;
-    font-size: 18px; /* Tamaño reducido a la mitad */
+    font-size: 18px; /* Tamaño reducido */
     background-color: #007bff;
     color: white;
     border: none;
@@ -62,7 +62,7 @@ h1 {
 /* Estilos del resultado del escaneo */
 .result {
     margin: 10px 0;
-    font-size: 15px; /* Tamaño reducido a la mitad */
+    font-size: 15px; /* Tamaño reducido */
     color: #333;
 }
 
@@ -77,10 +77,10 @@ h1 {
     justify-content: space-between;
     align-items: center;
     background-color: #e8e8e8;
-    padding: 15px; /* Tamaño reducido a la mitad */
+    padding: 15px; /* Tamaño reducido */
     margin-bottom: 10px;
     border-radius: 10px;
-    font-size: 18px; /* Tamaño reducido a la mitad */
+    font-size: 18px; /* Tamaño reducido */
 }
 
 .product-info {
@@ -92,23 +92,43 @@ h1 {
 .product-info p {
     background-color: #007bff;
     color: white;
-    padding: 10px 15px; /* Tamaño reducido a la mitad */
+    padding: 10px 15px; /* Tamaño reducido */
     border-radius: 5px;
     margin: 0;
-    font-size: 18px; /* Tamaño reducido a la mitad */
+    font-size: 18px; /* Tamaño reducido */
+}
+
+/* Estilo específico para el item "Sugerido" */
+.product-info p.sugerido {
+    background-color: #ff9800; /* Color naranja para destacar */
 }
 
 /* Botón de eliminación */
 .delete-button {
     background-color: #dc3545;
     color: white;
-    padding: 10px 15px; /* Tamaño reducido a la mitad */
+    padding: 10px 15px; /* Tamaño reducido */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 18px; /* Tamaño reducido a la mitad */
+    font-size: 18px; /* Tamaño reducido */
+    align-self: stretch; /* Ajusta la altura al contenedor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .delete-button:hover {
     background-color: #c82333;
+}
+
+/* Estilos para el total de precios sugeridos */
+.total-container {
+    background-color: #4caf50;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
 }
