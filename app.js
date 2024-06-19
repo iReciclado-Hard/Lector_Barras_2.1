@@ -83,10 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const productInfo = document.createElement('div');
             productInfo.classList.add('product-info');
 
-            // Añade la información del producto
+            // Añade la información del producto sin las etiquetas (Descripción, Precio, Sugerido)
             ['Descripcion', 'Precio', 'Sugerido'].forEach(key => {
                 const p = document.createElement('p');
-                p.innerText = `${key}: ${productData[key]}`;
+                p.innerText = `${productData[key]}`;
                 productInfo.appendChild(p);
             });
 
