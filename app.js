@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!scanning) {
             resultElement.innerText = "Escaneando...";
             resultElement.style.display = 'block';
+            videoElement.style.display = 'block'; // Asegura que el video esté visible
 
             codeReader.decodeFromVideoDevice(undefined, 'video-preview', (result, err) => {
                 if (result) {
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     resultElement.style.display = 'block';
                     codeReader.reset(); // Detener el escaneo después de encontrar un código
                     scanning = false;
+                    videoElement.style.display = 'none'; // Ocultar la vista del escáner después de escanear
                     findProductData(result.text).then(productData => displayProductData(productData));
                 }
                 if (err && !(err instanceof ZXing.NotFoundException)) {
@@ -33,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             codeReader.reset(); // Detener el escaneo
             scanning = false;
             resultElement.style.display = 'none';
+            videoElement.style.display = 'none'; // Ocultar la vista del escáner al detener
         }
     });
 
