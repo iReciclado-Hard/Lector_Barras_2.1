@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalSuggestedPrice = 0;
     let scanning = false;
 
+    // Función para iniciar el escaneo
     document.getElementById('startScan').addEventListener('click', () => {
         if (!scanning) {
             resultElement.innerText = "Escaneando...";
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Función para detener el escaneo
     document.getElementById('stopScan').addEventListener('click', () => {
         if (scanning) {
             codeReader.reset(); // Detener el escaneo
@@ -99,6 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!isNaN(sugeridoValue)) {
                         totalSuggestedPrice += sugeridoValue;
                         updateTotalSuggestedPrice();
+                    } else {
+                        console.warn(`Valor inválido para "Sugerido": ${productData[key]}`);
                     }
                 }
                 productInfo.appendChild(p);
