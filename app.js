@@ -95,8 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (key === 'Sugerido') {
                     p.classList.add('sugerido');
                     // Actualiza el total de los precios sugeridos
-                    totalSuggestedPrice += parseFloat(productData[key]);
-                    updateTotalSuggestedPrice();
+                    const sugeridoValue = parseFloat(productData[key]);
+                    if (!isNaN(sugeridoValue)) {
+                        totalSuggestedPrice += sugeridoValue;
+                        updateTotalSuggestedPrice();
+                    }
                 }
                 productInfo.appendChild(p);
             });
@@ -112,8 +115,11 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteButton.innerText = 'Eliminar';
         deleteButton.addEventListener('click', () => {
             if (productData && productData['Sugerido']) {
-                totalSuggestedPrice -= parseFloat(productData['Sugerido']);
-                updateTotalSuggestedPrice();
+                const sugeridoValue = parseFloat(productData['Sugerido']);
+                if (!isNaN(sugeridoValue)) {
+                    totalSuggestedPrice -= sugeridoValue;
+                    updateTotalSuggestedPrice();
+                }
             }
             productListElement.removeChild(productItem);
         });
