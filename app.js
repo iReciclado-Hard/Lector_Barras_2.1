@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (key === 'Sugerido') {
                     p.classList.add('sugerido');
                     // Actualiza el total de los precios sugeridos
-                    const sugeridoValue = parseFloat(productData[key]);
+                    const sugeridoValue = parseFloat(productData[key].replace(/[^0-9.-]+/g, "")); // Asegura que es un número válido
                     if (!isNaN(sugeridoValue)) {
                         totalSuggestedPrice += sugeridoValue;
                         updateTotalSuggestedPrice();
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteButton.innerText = 'Eliminar';
         deleteButton.addEventListener('click', () => {
             if (productData && productData['Sugerido']) {
-                const sugeridoValue = parseFloat(productData['Sugerido']);
+                const sugeridoValue = parseFloat(productData['Sugerido'].replace(/[^0-9.-]+/g, ""));
                 if (!isNaN(sugeridoValue)) {
                     totalSuggestedPrice -= sugeridoValue;
                     updateTotalSuggestedPrice();
