@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let totalSuggestedPrice = 0;
     let scanning = false;
 
-    // Función para iniciar el escaneo
     document.getElementById('startScan').addEventListener('click', () => {
         if (!scanning) {
             resultElement.innerText = "Escaneando...";
@@ -33,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Función para detener el escaneo
     document.getElementById('stopScan').addEventListener('click', () => {
         if (scanning) {
             codeReader.reset(); // Detener el escaneo
@@ -43,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Función para obtener datos de Google Sheets
     async function fetchSheetData() {
         const sheetId = '1OyOanAl_4iX9iOZcAjdbkpOZ4NdeU20dgicUSuxxwds'; // Reemplaza con el ID de tu hoja de Google
         const sheetName = 'Hoja1'; // Reemplaza con el nombre de la hoja
@@ -60,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Función para encontrar datos del producto por código
     async function findProductData(code) {
         const data = await fetchSheetData();
         if (!data) return null;
@@ -81,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return null; // Devuelve null si no se encuentra el código
     }
 
-    // Función para mostrar los datos del producto en la página
     function displayProductData(productData) {
         const productItem = document.createElement('div');
         productItem.classList.add('product-item');
@@ -96,8 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 p.innerText = `${productData[key]}`;
                 if (key === 'Sugerido') {
                     p.classList.add('sugerido');
-                    // Actualiza el total de los precios sugeridos
-                    const sugeridoValue = parseFloat(productData[key].replace(/[^0-9.-]+/g, "")); // Asegura que es un número válido
+                    // Limpia cualquier carácter no numérico (incluyendo espacios en blanco) y convierte a número
+                    const sugeridoValue = parseFloat(productData[key].replace(/[^0-9.,-]+/g, "").replace(',', '.'));
                     if (!isNaN(sugeridoValue)) {
                         totalSuggestedPrice += sugeridoValue;
                         updateTotalSuggestedPrice();
@@ -113,13 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
             productInfo.appendChild(p);
         }
 
-        // Botón para eliminar el producto
         const deleteButton = document.createElement('button');
         deleteButton.classList.add('delete-button');
         deleteButton.innerText = 'Eliminar';
         deleteButton.addEventListener('click', () => {
             if (productData && productData['Sugerido']) {
-                const sugeridoValue = parseFloat(productData['Sugerido'].replace(/[^0-9.-]+/g, ""));
+                const sugeridoValue = parseFloat(productData['Sugerido'].replace(/[^0-9.,-]+/g, "").replace(',', '.'));
                 if (!isNaN(sugeridoValue)) {
                     totalSuggestedPrice -= sugeridoValue;
                     updateTotalSuggestedPrice();
@@ -133,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
         productListElement.appendChild(productItem);
     }
 
-    // Función para actualizar el total de los precios sugeridos
     function updateTotalSuggestedPrice() {
         totalElement.innerText = `Total Sugerido: $${totalSuggestedPrice.toFixed(2)}`;
     }
