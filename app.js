@@ -128,6 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateTotalSuggestedPrice() {
-        totalElement.innerText = `Total Sugerido: $${totalSuggestedPrice.toFixed(2)}`;
+        totalElement.innerText = `Total Sugerido: $${totalSuggestedPrice}`;
     }
 });
