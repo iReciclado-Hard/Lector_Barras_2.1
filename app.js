@@ -128,6 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateTotalSuggestedPrice() {
-        totalElement.innerText = `Total Sugerido: $${totalSuggestedPrice.toFixed(2)}`;
+        // Aumentar el valor por 100 para simular la adición de dos dígitos
+        const adjustedTotal = totalSuggestedPrice * 100;
+        totalElement.innerText = `Total Sugerido: $${adjustedTotal.toFixed(2)}`;
     }
 });
