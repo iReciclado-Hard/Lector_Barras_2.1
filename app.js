@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 p.innerText = `${productData[key]}`;
                 if (key === 'Sugerido') {
                     p.classList.add('sugerido');
-                    // Limpia cualquier carácter no numérico (incluyendo espacios en blanco) y convierte a número
+                    // Extraer el valor y convertirlo a un número
                     const sugeridoValue = parseFloat(productData[key].replace(/[^0-9.,-]+/g, "").replace(',', '.'));
                     if (!isNaN(sugeridoValue)) {
                         totalSuggestedPrice += sugeridoValue;
@@ -128,8 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateTotalSuggestedPrice() {
-        // Aumentar el valor por 100 para simular la adición de dos dígitos
-        const adjustedTotal = totalSuggestedPrice * 100;
-        totalElement.innerText = `Total Sugerido: $${adjustedTotal.toFixed(2)}`;
+        // Formatear el total sugerido para que siempre tenga dos decimales y usar coma como separador decimal
+        totalElement.innerText = `Total Sugerido: $${totalSuggestedPrice.toFixed(2).replace('.', ',')}`;
     }
 });
